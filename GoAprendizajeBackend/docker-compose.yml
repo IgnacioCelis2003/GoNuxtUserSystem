@@ -1,0 +1,39 @@
+
+services:
+  backend:
+    build: .
+    container_name: go-aprendizaje-backend
+    
+    env_file:
+      - ./.env
+      
+    ports:
+      # Mapea el puerto del Host al Contenedor
+      - "8080:8080" 
+      
+    volumes:
+      # 1. Volumen nombrado para los archivos subidos
+      # Conecta el volumen 'uploads-data' a la ruta del contenedor
+      - uploads-data:/app/uploads 
+      
+      # 2. Volumen nombrado para los logs persistentes
+      # Conecta el volumen 'log-data' a donde sea que escribas el log
+      # (Asumiendo que 'app.log' se escribe en el WORKDIR /app)
+      - log-data:/app/logging
+    
+    networks:
+      - mi-red
+    
+    # (¡Importante! Debes seguir usando 'host.docker.internal' en tu .env
+    # para que el contenedor pueda ver las BDs de tu PC)
+    
+# Definición de los volúmenes nombrados
+volumes:
+  uploads-data:
+    driver: local 
+  log-data:
+    driver: local
+
+networks:
+  mi-red:
+    driver: bridge

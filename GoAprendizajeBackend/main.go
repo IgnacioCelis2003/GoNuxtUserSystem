@@ -14,7 +14,7 @@ import (
 func main() {
 
 	// Cargar la configuración
-	config.LoadConfig()
+	//config.LoadConfig()
 	port := config.GetEnv("SERVER_PORT", "8080")
 
 	// Inicializar el sistema de logging

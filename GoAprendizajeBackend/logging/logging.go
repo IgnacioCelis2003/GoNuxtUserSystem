@@ -1,6 +1,7 @@
 package logging
 
 import (
+	"go-aprendizaje/config"
 	"log"
 	"os"
 
@@ -25,12 +26,14 @@ func InitLogging() {
 	// ERROR: "Algo falló"
 	Log.SetLevel(logrus.InfoLevel)
 
+	loggingPath := config.GetEnv("LOGGING_PATH", "/app/logging/app.log")
+
 	// 4. Configurar la salida (¡la parte clave!)
 	// Abrimos un archivo 'app.log'.
 	// os.O_CREATE: Crea el archivo si no existe.
 	// os.O_WRONLY: Solo escritura.
 	// os.O_APPEND: Escribe al final del archivo (no lo sobrescribe).
-	file, err := os.OpenFile("./logging/app.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	file, err := os.OpenFile(loggingPath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
 	if err != nil {
 		// Si no podemos abrir el archivo de log, fallamos rápido
 		log.Fatal("Error fatal: No se pudo abrir el archivo de log: ", err)
