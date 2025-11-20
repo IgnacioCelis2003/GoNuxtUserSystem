@@ -5,6 +5,7 @@ import (
 	"go-aprendizaje/core"
 	"go-aprendizaje/database"
 	"go-aprendizaje/logging"
+	"go-aprendizaje/middleware"
 	"go-aprendizaje/routes"
 	"log"
 
@@ -29,6 +30,7 @@ func main() {
 
 	// Configurar el router
 	router := gin.Default()
+	router.Use(middleware.SetupCorsConfig())
 	routes.SetupRoutes(router)
 
 	logging.Log.Info("Servidor iniciando en el puerto " + port)

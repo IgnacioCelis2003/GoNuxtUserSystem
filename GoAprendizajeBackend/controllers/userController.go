@@ -153,9 +153,10 @@ func GetProfile(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"message": "Perfil obtenido exitosamente",
 		"user": gin.H{
-			"id":    user.ID,
-			"email": user.Email,
-			"role":  role, // Podríamos usar 'user.Role' o el 'role' del token
+			"id":                 user.ID,
+			"email":              user.Email,
+			"role":               role, // Podríamos usar 'user.Role' o el 'role' del token
+			"profile_image_path": user.ProfileImagePath,
 		},
 	})
 }
