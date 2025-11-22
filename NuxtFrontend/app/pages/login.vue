@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // Importaciones necesarias
-const config = useRuntimeConfig();
+const config = useRuntimeConfig(); // useRuntimeConfig para acceder a variables de entorno, es de Nuxt por defecto
 const { setToken } = useAuth();
 const router = useRouter();
 

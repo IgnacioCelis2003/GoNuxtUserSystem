@@ -12,12 +12,12 @@ export default defineNuxtConfig({
 
   modules: [
     // Vuetify module
-    (_options, nuxt) => {
+    /*(_options, nuxt) => {
       nuxt.hooks.hook('vite:extendConfig', (config) => {
         // @ts-expect-error
         config.plugins.push(vuetify({ autoImport: true }))
       })
-    },
+    },*/
     '@nuxt/eslint',
     '@nuxt/image',
     '@nuxt/ui',

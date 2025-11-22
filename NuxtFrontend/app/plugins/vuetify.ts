@@ -9,6 +9,7 @@ export default defineNuxtPlugin((app) => {
   const vuetify = createVuetify({
     components,
     directives,
+    
     // Configuración del tema (Opcional, por defecto es claro)
     theme: {
       defaultTheme: 'light',

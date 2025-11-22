@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app> // Componente principal de Vuetify que envuelve toda la aplicación, siempre debe estar presente y rodeando todo el contenido, sino Vuetify no funcionará correctamente
     <Header />
 
     <v-main class="bg-grey-lighten-5">
@@ -10,5 +10,5 @@
 
     <Footer />
     
-    </v-app>
+  </v-app>
 </template>

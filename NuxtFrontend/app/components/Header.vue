@@ -2,7 +2,7 @@
 const { token, logout } = useAuth();
 
 // Función para navegar (Vuetify usa router.push o nuxt link)
-const goTo = (path: string) => navigateTo(path);
+const goTo = (path: string) => navigateTo(path); // navigateTo es para navegar entre paginas del proyecto
 </script>
 
 <template>

@@ -1,11 +1,11 @@
 
 services:
   backend:
-    build: .
+    build: ./GoAprendizajeBackend # Ruta a la carpeta del backend
     container_name: go-aprendizaje-backend
     
     env_file:
-      - ./.env
+      - ./GoAprendizajeBackend/.env
       
     ports:
       # Mapea el puerto del Host al Contenedor
@@ -24,8 +24,18 @@ services:
     networks:
       - mi-red
     
-    # (¡Importante! Debes seguir usando 'host.docker.internal' en tu .env
-    # para que el contenedor pueda ver las BDs de tu PC)
+  frontend:
+    build: ./NuxtFrontend # Ruta a la carpeta del frontend
+    container_name: nuxt-aprendizaje-frontend
+    ports:
+      - "3000:3000"
+
+    env_file:
+      - ./NuxtFrontend/.env
+    networks:
+      - mi-red
+    depends_on:
+      - backend # Espera a que el backend inicie
     
 # Definición de los volúmenes nombrados
 volumes:

@@ -1,3 +1,9 @@
+<script setup lang="ts">
+// función para navegar 
+const goTo = (path: string) => window.open(path, '_blank'); // Abrir en una nueva pestaña, __blank es para eso
+</script>
+
+
 <template>
   <v-footer app class="bg-grey-lighten-4">
     <v-container>
@@ -11,9 +17,8 @@
         </v-col>
 
         <v-col cols="12" md="6" class="text-center text-md-right mt-4 mt-md-0">
-          <v-btn icon="mdi-github" variant="text" size="small" ></v-btn>
-          <v-btn icon="mdi-twitter" variant="text" size="small"></v-btn>
-          <v-btn icon="mdi-linkedin" variant="text" size="small"></v-btn>
+          <v-btn icon="mdi-github" variant="text" size="small" @click="goTo('https://github.com/IgnacioCelis2003')"></v-btn>
+          <v-btn icon="mdi-linkedin" variant="text" size="small" @click="goTo('https://cl.linkedin.com/in/ignacio-celis-castro-a2a246259?trk=people-guest_people_search-card')"></v-btn>
         </v-col>
 
         <v-col cols="12" class="text-center mt-4">
@@ -27,3 +32,4 @@
     </v-container>
   </v-footer>
 </template>
+

@@ -5,11 +5,12 @@ const { token } = useAuth();
 
 // 2. Protección de Ruta: Si no hay token, mandamos al usuario al login
 if (!token.value) {
-  await navigateTo('/login');
-}
+  await navigateTo('/login'); // await para la ejecución del codigo hasta que se cumpla la promesa (que la funcion retorne una respuesta)
+} // en este caso, para la ejecución del codigo hasta que se complete la navegación a /login
 
-// 3. Obtener datos del usuario desde la API de Go
-// Usamos 'key' para que Nuxt sepa identificar esta petición
+// useFetch se usa al CARGAR la página. Se ejecuta en el servidor y cliente.
+// key: Un ID único para cachear esta petición y no repetirla tontamente.
+// headers: Enviamos el token "Bearer ..." para que Go sepa quiénes somos.
 const { data: userData, refresh, error: fetchError } = await useFetch<any>(`${config.public.apiBase}/api/users/profile`, {
   key: 'user-profile',
   headers: {

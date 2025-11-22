@@ -7,8 +7,13 @@ defineProps({
   isRegister: Boolean
 });
 
-const emit = defineEmits(['submit']);
+const emit = defineEmits(['submit']); // Emitir eventos al componente padre esto hace defineEmits, crea un evento llamado 'submit' y el contendio se lo entrga al padre
+
+// reactive: Crea un objeto que Vue "vigila". 
+// Si escribes en el input, 'form.email' se actualiza en tiempo real.
 const form = reactive({ email: '', password: '' });
+
+// ref: Variable reactiva simple. Cambia entre true/false para mostrar/ocultar contraseña.
 const showPassword = ref(false); // Para alternar ver/ocultar contraseña
 
 // Reglas de validación simples (Vuetify las usa automáticamente)
